@@ -7,7 +7,7 @@
 }
 body {
   font-family: "Poppins";
-  background: url("/photo/gd-house photos, images, assets.jpg") center/cover
+  background: url("/photo/gd-house.jpg") center/cover
     fixed;
   min-height: 100vh;
   display: flex;
