@@ -1,0 +1,108 @@
+:root {
+  --brown: #5c1e00;
+  --brown-dark: #3a1300;
+  --gold: #ffe46e;
+  --orange-1: #ff9b00;
+  --orange-2: #d95000;
+}
+body {
+  font-family: "Poppins";
+  background: url("/photo/gd-house photos, images, assets.jpg") center/cover
+    fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 90px;
+}
+/* navbar */
+.custom-nav {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(3px);
+  border-bottom: 3px solid var(--brown);
+  box-shadow: 0 4px 0 var(--brown-dark);
+}
+nav.custom-nav .nav-link {
+  background: linear-gradient(var(--orange-1), var(--orange-2));
+  border: 3px solid var(--brown);
+  border-radius: 26px;
+  padding: 6px 16px !important;
+  margin-left: 12px;
+  font-weight: 700;
+  color: #fff !important;
+  box-shadow: 0 4px 0 var(--brown);
+  transition: 0.2s;
+}
+nav.custom-nav .nav-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 var(--brown);
+}
+
+/* quiz box */
+.quiz-container {
+  width: 90%;
+  max-width: 650px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 3px solid var(--brown);
+  box-shadow: 0 8px 0 var(--brown-dark);
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+}
+h2 {
+  font-weight: 800;
+  color: var(--brown);
+}
+.question {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 18px 0;
+}
+.option {
+  display: block;
+  width: 100%;
+  background: #81d4fa;
+  border: 3px solid var(--brown);
+  padding: 12px;
+  border-radius: 20px;
+  margin: 8px 0;
+  font-weight: 700;
+  color: #2b2b2b;
+  box-shadow: 0 4px 0 var(--brown);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.option:hover {
+  background: #4fc3f7;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 var(--brown);
+}
+
+.option.correct {
+  background: #2ecc71;
+  border-color: #145a32;
+}
+.option.wrong {
+  background: #e74c3c;
+  border-color: #7b241c;
+}
+
+/* next btn */
+#next-btn {
+  display: none;
+  background: linear-gradient(var(--orange-1), var(--orange-2));
+  border: 3px solid var(--brown);
+  border-radius: 26px;
+  padding: 12px 32px;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 20px;
+  box-shadow: 0 4px 0 var(--brown);
+  cursor: pointer;
+  transition: 0.2s;
+}
+#next-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 0 var(--brown);
+}

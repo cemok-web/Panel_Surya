@@ -1,0 +1,188 @@
+:root {
+  --brown: #5c1e00;
+  --brown-dark: #3a1300;
+  --gold: #ffe46e;
+  --orange-1: #ff9b00;
+  --orange-2: #d95000;
+  --paper: #fff7e6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  min-height: 100vh;
+  background: url("/photo/gd-house photos, images, assets.jpg") center/cover
+    fixed;
+  color: #2b2b2b;
+}
+
+/* Transparent HUD-like navbar (match your previous style) */
+.custom-nav {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(3px);
+  border-bottom: 3px solid var(--brown);
+  box-shadow: 0 4px 0 var(--brown-dark);
+}
+
+.navbar .nav-link {
+  background: linear-gradient(var(--orange-1), var(--orange-2));
+  border: 3px solid var(--brown);
+  border-radius: 26px;
+  padding: 6px 16px !important;
+  margin-left: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff !important;
+  box-shadow: 0 4px 0 var(--brown);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 var(--brown);
+}
+
+.navbar-brand {
+  color: var(--gold) !important;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+/* Section container */
+.glass {
+  background: rgba(255, 255, 255, 0.78);
+  border: 3px solid var(--brown);
+  box-shadow: 0 8px 0 var(--brown-dark);
+  border-radius: 24px;
+  padding: 18px 18px 6px;
+}
+
+.title-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(var(--orange-1), var(--orange-2));
+  color: #fff;
+  border: 3px solid var(--brown);
+  border-radius: 18px;
+  padding: 6px 14px;
+  box-shadow: 0 4px 0 var(--brown);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+/* Simulation card */
+.sim-card {
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 14px;
+  border: 3px solid var(--brown);
+  box-shadow: inset 0 0 0 3px #00000010;
+}
+
+.meter {
+  height: 18px;
+  width: 100%;
+  background: #eee;
+  border: 3px solid var(--brown);
+  border-radius: 14px;
+  box-shadow: inset 0 3px 0 #00000020;
+  position: relative;
+  overflow: hidden;
+}
+
+.meter > .fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #ffdd55, #ffd000, #ff9b00);
+}
+
+.badge-chip {
+  background: #fff;
+  border: 2px solid var(--brown);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Slider styling */
+.form-range::-webkit-slider-thumb {
+  background: var(--orange-2);
+}
+
+.form-range::-moz-range-thumb {
+  background: var(--orange-2);
+}
+
+.label-strong {
+  font-weight: 700;
+  color: #3a1300;
+}
+
+/* SVG stage */
+.stage {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(#b7eaff, #e3f6ff);
+  border: 3px solid var(--brown);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage .overlay-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff80 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.legend {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Footer note */
+.note {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+@media (max-width: 992px) {
+  .navbar .nav-link {
+    margin-top: 8px;
+  }
+}
+
+#next-btn {
+  display: none;
+  background: linear-gradient(var(--orange-1), var(--orange-2));
+  border: 3px solid var(--brown);
+  border-radius: 26px;
+  padding: 12px 32px;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 20px;
+  margin-left: auto;
+  /* ini penting biar ke kanan */
+  box-shadow: 0 4px 0 var(--brown);
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+}

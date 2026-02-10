@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Surya</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg custom-nav position-sticky top-0 w-100 px-4 py-2" style="z-index: 10">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html"><i class="ri-home-4-fill"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profil.html"><i class="ri-user-3-fill"></i> Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="materi.html"><i class="ri-book-open-fill"></i> Materi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="kuis.html"><i class="ri-gamepad-fill"></i> Kuis</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container py-4 py-lg-5">
+    <!-- Intro / Definition -->
+    <section class="glass mb-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <span class="title-chip"><i class="ri-lightbulb-flash-fill"></i> Pengertian Panel
+          Surya</span>
+        <span class="badge-chip"><i class="ri-leaf-fill"></i> Tanpa bahan bakar & polusi</span>
+      </div>
+      <div class="p-2 p-md-3">
+        <p class="note mb-1 mt-2">
+          Panel surya adalah alat yang digunakan untuk mengubah energi cahaya
+          matahari menjadi energi listrik. Panel ini terdiri dari banyak sel
+          surya (solar cell) yang terbuat dari bahan semikonduktor seperti
+          silikon. Ketika sinar matahari mengenai sel surya, elektron di
+          dalamnya bergerak dan menghasilkan arus listrik. Proses ini disebut
+          efek fotovoltaik. Dengan kata lain, panel surya bekerja tanpa bahan
+          bakar dan tanpa polusi, hanya memanfaatkan sinar matahari sebagai
+          sumber energi.
+        </p>
+      </div>
+    </section>
+
+    <!-- Simulation -->
+    <section class="glass">
+      <div class="row g-3 g-lg-4">
+        <div class="col-lg-7">
+          <div class="sim-card">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="badge-chip">
+                <i class="ri-cpu-fill"></i> Simulasi Interaktif
+              </div>
+              <div class="legend">
+                <i class="ri-sun-fill" style="color: #ffb300"></i> Matahari ·
+                <i class="ri-battery-2-charge-fill" style="color: #00a86b"></i>
+                Daya
+              </div>
+            </div>
+            <div class="stage" id="stage">
+              <svg id="sim" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                <!-- Sky gradient is handled by container background. Add ground -->
+                <defs>
+                  <linearGradient id="gnd" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#8fd18f" />
+                    <stop offset="100%" stop-color="#5aa85a" />
+                  </linearGradient>
+                  <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fff7c2" />
+                    <stop offset="60%" stop-color="#ffd24d" />
+                    <stop offset="100%" stop-color="#ffb300" />
+                  </radialGradient>
+                </defs>
+
+                <!-- Ground -->
+                <rect x="0" y="650" width="1600" height="250" fill="url(#gnd)" />
+
+                <!-- Sun (positioned via JS) -->
+                <g id="sun" transform="translate(200,200)">
+                  <circle r="70" fill="url(#sunGrad)" />
+                  <!-- subtle glow rays -->
+                  <g id="sunRays">
+                    <line x1="0" y1="0" x2="140" y2="0" stroke="#ffd24d" stroke-width="10" opacity="0.5" />
+                    <line x1="0" y1="0" x2="-140" y2="0" stroke="#ffd24d" stroke-width="10" opacity="0.5" />
+                    <line x1="0" y1="0" x2="0" y2="140" stroke="#ffd24d" stroke-width="10" opacity="0.5" />
+                    <line x1="0" y1="0" x2="0" y2="-140" stroke="#ffd24d" stroke-width="10" opacity="0.5" />
+                  </g>
+                </g>
+
+                <!-- Panel mount (pivot at center) -->
+                <g id="panel" transform="translate(1000,720) rotate(-20)">
+                  <!-- Post -->
+                  <rect x="-12" y="-10" width="24" height="180" fill="#6b6b6b" />
+                  <!-- Panel board -->
+                  <g>
+                    <rect x="-300" y="-250" rx="14" ry="14" width="600" height="300" fill="#1b3b5a" stroke="#0f2436"
+                      stroke-width="12" />
+                    <!-- Cells grid -->
+                    <g id="cells"></g>
+                  </g>
+                </g>
+
+                <!-- Incoming ray (from sun to panel normal) -->
+                <line id="ray" x1="0" y1="0" x2="0" y2="0" stroke="#ffd24d" stroke-width="12" stroke-linecap="round"
+                  opacity=".7" />
+              </svg>
+              <div class="overlay-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="sim-card">
+            <div class="mb-2 d-flex align-items-center justify-content-between">
+              <span class="badge-chip"><i class="ri-equalizer-line"></i> Kontrol</span>
+              <span class="badge-chip"><i class="ri-information-fill"></i> Coba geser slider</span>
+            </div>
+
+            <label class="form-label label-strong mt-2">Kemiringan Panel(°)</label>
+            <input type="range" min="0" max="60" value="20" class="form-range" id="tiltRange" />
+
+            <label class="form-label label-strong mt-2">Ketinggian Matahari(°)</label>
+            <input type="range" min="5" max="85" value="40" class="form-range" id="sunElevRange" />
+
+            <label class="form-label label-strong mt-2">Arah Matahari (°)</label>
+            <input type="range" min="-90" max="90" value="-25" class="form-range" id="sunAziRange" />
+
+            <label class="form-label label-strong mt-2">Tingkat Awan(%)</label>
+            <input type="range" min="0" max="100" value="10" class="form-range" id="cloudRange" />
+
+            <hr />
+
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+              <div class="badge-chip">
+                <i class="ri-battery-2-charge-fill"></i> Perkiraan Daya
+              </div>
+              <div class="badge-chip">
+                <i class="ri-radar-fill"></i> Iradiasi Matahari
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="meter">
+                  <div class="fill" id="powerFill"></div>
+                </div>
+                <div class="mt-2 fw-bold" id="powerText">0 W</div>
+              </div>
+              <div class="col-6">
+                <div class="small">
+                  Iradiasi (kondisi & sudut):
+                  <span class="fw-bold" id="irrText">0 W/m²</span>
+                </div>
+              </div>
+              <div class="col-6 text-end">
+                <div class="small">
+                  Efisiensi panel: <span class="fw-bold">20%</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-3 small text-muted">
+              Daya listrik yang dihasilkan panel dipengaruhi oleh seberapa
+              besar cahaya matahari yang kena ke panel dan seberapa efisien
+              panel itu mengubahnya jadi listrik. Semakin pas arah panel ke
+              arah matahari dan semakin sedikit awan, semakin besar listrik
+              yang dihasilkan.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <div style="display:flex; justify-content:flex-end; width:100%; margin-top:18px;">
+      <button id="next-btn">Selanjutnya</button>
+    </div>
+
+
+  </main>
+
+  <script src="js/panel.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
