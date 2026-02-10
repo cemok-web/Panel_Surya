@@ -20,7 +20,7 @@ body {
   color: #2b2b2b;
 }
 
-/* Transparent HUD-like navbar (match your previous style) */
+
 .custom-nav {
   background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(3px);

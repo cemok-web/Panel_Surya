@@ -43,7 +43,7 @@ const quizData = [
     correct: 3,
   },
 
-  // B/S
+  
   {
     question:
       "Panel surya dapat menghasilkan listrik meskipun tidak ada cahaya matahari.",

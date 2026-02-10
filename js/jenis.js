@@ -61,14 +61,14 @@ const hyFlows = {
 
 function setHybrid(battLow = false) {
   if (!battLow) {
-    // normal hybrid: solar -> panel -> batt -> inverter -> rumah only
+
     setActive(
       hyFlows,
       ["hy_sun_panel", "hy_panel_batt", "hy_batt_inv", "hy_inv_home"],
       "arrow_hy"
     );
   } else {
-    // low batt -> PLN -> Rumah ONLY
+    
     setActive(hyFlows, ["hy_grid_home"], "arrow_hy");
   }
 }
@@ -86,13 +86,13 @@ const hyLowBtn = document.getElementById("btnHyBattLow");
 hyResetBtn.addEventListener("click", () => {
   hyResetBtn.classList.add("active");
   hyLowBtn.classList.remove("active");
-  setHybrid(false); // kondisi normal
+  setHybrid(false); 
 });
 
 hyLowBtn.addEventListener("click", () => {
   hyLowBtn.classList.add("active");
   hyResetBtn.classList.remove("active");
-  setHybrid(true); // kondisi baterai low
+  setHybrid(true); 
 });
 document.getElementById("btn-prev").addEventListener("click", function () {
   window.location.href = "panel.html";

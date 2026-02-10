@@ -36,7 +36,7 @@ body {
 .btn {
   display: block;
   text-align: center;
-  text-decoration: none; /* biar ga underline */
+  text-decoration: none;
   width: 230px;
   padding: 18px 0;
   margin: 12px auto;

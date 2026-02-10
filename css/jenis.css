@@ -213,7 +213,7 @@ body {
   }
 }
 
-/* reuse existing styles from your CSS; ensure .flow & .title exist */
+
 .flow {
   stroke-width: 12;
   stroke-linecap: round;
@@ -236,7 +236,7 @@ body {
   font-weight: 800;
   color: #fff;
   margin-top: 20px;
-  margin-left: auto; /* ini penting biar ke kanan */
+  margin-left: auto; 
   box-shadow: 0 4px 0 var(--brown);
   cursor: pointer;
   transition: 0.2s;

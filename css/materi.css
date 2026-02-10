@@ -16,10 +16,10 @@ body {
   align-items: center;
 }
 
-/* navbar background biar match card aesthetic */
+
 .custom-nav {
-  background: rgba(0, 0, 0, 0); /* transparan full */
-  backdrop-filter: blur(3px); /* biar ada efek kaca dikit */
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(3px);
   border-bottom: 3px solid #5c1e00;
   box-shadow: 0 4px 0 #3a1300;
   transition: 0.3s ease;
