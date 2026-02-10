@@ -13,7 +13,7 @@ body {
   align-items: center;
   background-size: cover;
   background-position: center;
-  background-image: url("../photo/gd-house.jpg");
+  background: url("../photo/gd-house.jpg") center/cover fixed;
 }
 
 /* container */
@@ -28,7 +28,9 @@ body {
   color: #ffe46e;
   padding: 15px 25px;
   -webkit-text-stroke: 4px #5b2c00;
-  text-shadow: 0 4px 0 #5b2c00, 0 6px 8px rgba(0, 0, 0, 0.4);
+  text-shadow:
+    0 4px 0 #5b2c00,
+    0 6px 8px rgba(0, 0, 0, 0.4);
   letter-spacing: 2px;
 }
 
