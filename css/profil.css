@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/photo/gd-house.jpg");
+  background-image: url("../photo/gd-house.jpg");
 }
 
 .box {
